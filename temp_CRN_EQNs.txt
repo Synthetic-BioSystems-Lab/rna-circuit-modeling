@@ -1,0 +1,58 @@
+Species(N = 7) = {
+rna[ugate] (@ 0),  dna[ugate] (@ 0),  protein[ribozyme] (@ 0),  rna[input_rna] (@ 0),  rna[rna[gate]:rna[input_rna]] (@ 0),  dna[input] (@ 0),  rna[gate] (@ 0),  
+}
+
+Reactions (8) = [
+0. dna[ugate] --> dna[ugate]+rna[ugate]
+ Kf=k_forward * dna_ugate
+  k_forward=0.05
+  found_key=(mech=None, partid=None, name=ktx).
+  search_key=(mech=simple_transcription, partid=strong, name=ktx).
+
+1. dna[input] --> dna[input]+rna[input_rna]
+ Kf=k_forward * dna_input
+  k_forward=0.05
+  found_key=(mech=None, partid=None, name=ktx).
+  search_key=(mech=simple_transcription, partid=strong, name=ktx).
+
+2. rna[gate]+rna[input_rna] <--> rna[rna[gate]:rna[input_rna]]
+ Kf=k_forward * rna_gate * rna_input_rna
+ Kr=k_reverse * rna_input_gate_
+  k_forward=100
+  found_key=(mech=None, partid=None, name=kb).
+  search_key=(mech=one_step_binding, partid=input_gate, name=kb).
+  k_reverse=20
+  found_key=(mech=None, partid=None, name=ku).
+  search_key=(mech=one_step_binding, partid=input_gate, name=ku).
+
+3. protein[ribozyme]+rna[ugate] --> protein[ribozyme]+rna[gate]
+ Kf=k_forward * protein_ribozyme * rna_ugate
+  k_forward=10
+  found_key=(mech=None, partid=None, name=kcat).
+  search_key=(mech=basic_catalysis, partid=ribozyme, name=kcat).
+
+4. rna[gate] --> 
+ Kf=k_forward * rna_gate
+  k_forward=0.0075
+  found_key=(mech=None, partid=None, name=kdil).
+  search_key=(mech=rna_degredation, partid=rna_gate, name=kdil).
+
+5. rna[ugate] --> 
+ Kf=k_forward * rna_ugate
+  k_forward=0.0075
+  found_key=(mech=None, partid=None, name=kdil).
+  search_key=(mech=rna_degredation, partid=rna_ugate, name=kdil).
+
+6. rna[input_rna] --> 
+ Kf=k_forward * rna_input_rna
+  k_forward=0.0075
+  found_key=(mech=None, partid=None, name=kdil).
+  search_key=(mech=rna_degredation, partid=rna_input_rna, name=kdil).
+
+7. rna[rna[gate]:rna[input_rna]] --> 
+ Kf=k_forward * rna_input_gate_
+  k_forward=0.0075
+  found_key=(mech=None, partid=None, name=kdil).
+  search_key=(mech=rna_degredation, partid=rna_input_gate_, name=kdil).
+
+]

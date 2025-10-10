@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version2/core" level="3" version="2">
+  <model id="biocrnpyler_792704" name="biocrnpyler_792704" substanceUnits="mole" timeUnits="second" volumeUnits="litre" areaUnits="square_metre" lengthUnits="metre" extentUnits="mole">
+    <listOfUnitDefinitions>
+      <unitDefinition id="square_metre">
+        <listOfUnits>
+          <unit kind="metre" exponent="2" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="default" name="default" spatialDimensions="3" size="1e-06" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="dna_ugate" name="dna_ugate" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="rna_ugate" name="rna_ugate" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="dna_input" name="dna_input" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="rna_input_rna" name="rna_input_rna" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="rna_gate" name="rna_gate" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="rna_input_gate_" name="rna_input_gate_" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="protein_ribozyme" name="protein_ribozyme" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="ktx__" value="0.05" constant="true"/>
+      <parameter id="kb__" value="100" constant="true"/>
+      <parameter id="ku__" value="20" constant="true"/>
+      <parameter id="kcat__" value="10" constant="true"/>
+      <parameter id="kdil__" value="0.0075" constant="true"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="r0" name="r0" reversible="false">
+        <annotation>
+          <PropensityType> k=ktx__ type=massaction</PropensityType>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="dna_ugate" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="dna_ugate" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_ugate" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> ktx__ </ci>
+              <ci> dna_ugate </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r1" name="r1" reversible="false">
+        <annotation>
+          <PropensityType> k=ktx__ type=massaction</PropensityType>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="dna_input" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="dna_input" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_input_rna" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> ktx__ </ci>
+              <ci> dna_input </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r2" name="r2" reversible="false">
+        <annotation>
+          <PropensityType> k=kb__ type=massaction</PropensityType>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="rna_gate" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_input_rna" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="rna_input_gate_" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kb__ </ci>
+              <ci> rna_gate </ci>
+              <ci> rna_input_rna </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r2rev" name="r2rev" reversible="false">
+        <annotation>
+          <PropensityType> k=ku__ type=massaction</PropensityType>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="rna_input_gate_" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="rna_gate" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_input_rna" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> ku__ </ci>
+              <ci> rna_input_gate_ </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r3" name="r3" reversible="false">
+        <annotation>
+          <PropensityType> k=kcat__ type=massaction</PropensityType>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="protein_ribozyme" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_ugate" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="protein_ribozyme" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_gate" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kcat__ </ci>
+              <ci> protein_ribozyme </ci>
+              <ci> rna_ugate </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r4" name="r4" reversible="false">
+        <annotation>
+          <PropensityType> k=kdil__ type=massaction</PropensityType>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="rna_gate" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kdil__ </ci>
+              <ci> rna_gate </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r5" name="r5" reversible="false">
+        <annotation>
+          <PropensityType> k=kdil__ type=massaction</PropensityType>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="rna_ugate" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kdil__ </ci>
+              <ci> rna_ugate </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r6" name="r6" reversible="false">
+        <annotation>
+          <PropensityType> k=kdil__ type=massaction</PropensityType>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="rna_input_rna" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kdil__ </ci>
+              <ci> rna_input_rna </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r7" name="r7" reversible="false">
+        <annotation>
+          <PropensityType> k=kdil__ type=massaction</PropensityType>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="rna_input_gate_" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kdil__ </ci>
+              <ci> rna_input_gate_ </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
