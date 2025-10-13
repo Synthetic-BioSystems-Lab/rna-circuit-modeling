@@ -1,8 +1,8 @@
-Species(N = 7) = {
-rna[ugate] (@ 0),  dna[ugate] (@ 0),  protein[ribozyme] (@ 0),  rna[input_rna] (@ 0),  rna[rna[gate]:rna[input_rna]] (@ 0),  dna[input] (@ 0),  rna[gate] (@ 0),  
+Species(N = 9) = {
+rna[ugate] (@ 0),  dna[ugate] (@ 0),  protein[ribozyme] (@ 0),  rna[output_rna] (@ 0),  rna[input_rna] (@ 0),  rna[input_gate] (@ 0),  dna[input] (@ 0),  rna[gate] (@ 0),  protein[CFP(degtagged)] (@ 0),  
 }
 
-Reactions (8) = [
+Reactions (11) = [
 0. dna[ugate] --> dna[ugate]+rna[ugate]
  Kf=k_forward * dna_ugate
   k_forward=0.05
@@ -15,21 +15,17 @@ Reactions (8) = [
   found_key=(mech=None, partid=None, name=ktx).
   search_key=(mech=simple_transcription, partid=strong, name=ktx).
 
-2. rna[gate]+rna[input_rna] <--> rna[rna[gate]:rna[input_rna]]
- Kf=k_forward * rna_gate * rna_input_rna
- Kr=k_reverse * rna_input_gate_
-  k_forward=100
-  found_key=(mech=None, partid=None, name=kb).
-  search_key=(mech=one_step_binding, partid=input_gate, name=kb).
-  k_reverse=20
-  found_key=(mech=None, partid=None, name=ku).
-  search_key=(mech=one_step_binding, partid=input_gate, name=ku).
-
-3. protein[ribozyme]+rna[ugate] --> protein[ribozyme]+rna[gate]
+2. protein[ribozyme]+rna[ugate] --> protein[ribozyme]+rna[gate]
  Kf=k_forward * protein_ribozyme * rna_ugate
-  k_forward=10
+  k_forward=0.05
   found_key=(mech=None, partid=None, name=kcat).
   search_key=(mech=basic_catalysis, partid=ribozyme, name=kcat).
+
+3. protein[CFP(degtagged)] --> 
+ Kf=k_forward * protein_CFP_degtagged
+  k_forward=0.0075
+  found_key=(mech=None, partid=None, name=kdil).
+  search_key=(mech=global_degredation_via_dilution, partid=protein_CFP_degtagged, name=kdil).
 
 4. rna[gate] --> 
  Kf=k_forward * rna_gate
@@ -37,11 +33,11 @@ Reactions (8) = [
   found_key=(mech=None, partid=None, name=kdil).
   search_key=(mech=rna_degredation, partid=rna_gate, name=kdil).
 
-5. rna[ugate] --> 
- Kf=k_forward * rna_ugate
+5. rna[input_gate] --> 
+ Kf=k_forward * rna_input_gate
   k_forward=0.0075
   found_key=(mech=None, partid=None, name=kdil).
-  search_key=(mech=rna_degredation, partid=rna_ugate, name=kdil).
+  search_key=(mech=rna_degredation, partid=rna_input_gate, name=kdil).
 
 6. rna[input_rna] --> 
  Kf=k_forward * rna_input_rna
@@ -49,10 +45,26 @@ Reactions (8) = [
   found_key=(mech=None, partid=None, name=kdil).
   search_key=(mech=rna_degredation, partid=rna_input_rna, name=kdil).
 
-7. rna[rna[gate]:rna[input_rna]] --> 
- Kf=k_forward * rna_input_gate_
+7. rna[output_rna] --> 
+ Kf=k_forward * rna_output_rna
   k_forward=0.0075
   found_key=(mech=None, partid=None, name=kdil).
-  search_key=(mech=rna_degredation, partid=rna_input_gate_, name=kdil).
+  search_key=(mech=rna_degredation, partid=rna_output_rna, name=kdil).
+
+8. rna[ugate] --> 
+ Kf=k_forward * rna_ugate
+  k_forward=0.0075
+  found_key=(mech=None, partid=None, name=kdil).
+  search_key=(mech=rna_degredation, partid=rna_ugate, name=kdil).
+
+9. rna[input_rna]+rna[gate] <--> rna[input_gate]+rna[output_rna]
+ Kf=k_forward * rna_input_rna * rna_gate
+ Kr=k_reverse * rna_input_gate * rna_output_rna
+  k_forward=0.05
+  k_reverse=0.005
+
+10. rna[input_gate] --> protein[CFP(degtagged)]+rna[input_gate]
+ Kf=k_forward * rna_input_gate
+  k_forward=0.05
 
 ]
