@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version2/core" level="3" version="2">
-  <model id="biocrnpyler_317959" name="biocrnpyler_317959" substanceUnits="mole" timeUnits="second" volumeUnits="litre" areaUnits="square_metre" lengthUnits="metre" extentUnits="mole">
+  <model id="biocrnpyler_460990" name="biocrnpyler_460990" substanceUnits="mole" timeUnits="second" volumeUnits="litre" areaUnits="square_metre" lengthUnits="metre" extentUnits="mole">
     <listOfUnitDefinitions>
       <unitDefinition id="square_metre">
         <listOfUnits>
@@ -23,9 +23,9 @@
       <species id="rna_gate" name="rna_gate" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
     </listOfSpecies>
     <listOfParameters>
-      <parameter id="ktx__" value="0.05" constant="true"/>
-      <parameter id="kcat__" value="0.05" constant="true"/>
-      <parameter id="kdil__" value="0.0075" constant="true"/>
+      <parameter id="ktx__" value="0.013" constant="true"/>
+      <parameter id="kcat__" value="0.00416666666666667" constant="true"/>
+      <parameter id="kdil__" value="0.00075" constant="true"/>
     </listOfParameters>
     <listOfReactions>
       <reaction id="r0" name="r0" reversible="false">
@@ -115,6 +115,23 @@
           <PropensityType> k=kdil__ type=massaction</PropensityType>
         </annotation>
         <listOfReactants>
+          <speciesReference species="rna_output_rna" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kdil__ </ci>
+              <ci> rna_output_rna </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r5" name="r5" reversible="false">
+        <annotation>
+          <PropensityType> k=kdil__ type=massaction</PropensityType>
+        </annotation>
+        <listOfReactants>
           <speciesReference species="rna_gate" stoichiometry="1" constant="false"/>
         </listOfReactants>
         <kineticLaw>
@@ -127,7 +144,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="r5" name="r5" reversible="false">
+      <reaction id="r6" name="r6" reversible="false">
         <annotation>
           <PropensityType> k=kdil__ type=massaction</PropensityType>
         </annotation>
@@ -144,7 +161,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="r6" name="r6" reversible="false">
+      <reaction id="r7" name="r7" reversible="false">
         <annotation>
           <PropensityType> k=kdil__ type=massaction</PropensityType>
         </annotation>
@@ -157,23 +174,6 @@
               <times/>
               <ci> kdil__ </ci>
               <ci> rna_input_rna </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="r7" name="r7" reversible="false">
-        <annotation>
-          <PropensityType> k=kdil__ type=massaction</PropensityType>
-        </annotation>
-        <listOfReactants>
-          <speciesReference species="rna_output_rna" stoichiometry="1" constant="false"/>
-        </listOfReactants>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kdil__ </ci>
-              <ci> rna_output_rna </ci>
             </apply>
           </math>
         </kineticLaw>
@@ -217,7 +217,7 @@
             </apply>
           </math>
           <listOfLocalParameters>
-            <localParameter id="k_forward" value="0.05"/>
+            <localParameter id="k_forward" value="1e-06"/>
           </listOfLocalParameters>
         </kineticLaw>
       </reaction>
@@ -243,7 +243,7 @@
             </apply>
           </math>
           <listOfLocalParameters>
-            <localParameter id="k_reverse" value="0.005"/>
+            <localParameter id="k_reverse" value="2.7e-07"/>
           </listOfLocalParameters>
         </kineticLaw>
       </reaction>
@@ -267,7 +267,7 @@
             </apply>
           </math>
           <listOfLocalParameters>
-            <localParameter id="k_forward" value="0.05"/>
+            <localParameter id="k_forward" value="0.075"/>
           </listOfLocalParameters>
         </kineticLaw>
       </reaction>
