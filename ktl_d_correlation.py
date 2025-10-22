@@ -16,15 +16,17 @@ y_fit = slope * x_fit + intercept
 import matplotlib.pyplot as plt
 import numpy as np
 
-ktl_lst = [0.075, 0.05, 0.015, 0.0075, 0.0025, 0.001]
+ktl_lst = [0.025, 0.0125, 0.005, 0.0025, 0.001, 0.0005]
 d_lst = [20, 15, 10, 5, 1, 0]
 
-p = np.poly1d(np.polyfit(d_lst, ktl_lst, deg=1))
+p = np.poly1d(np.polyfit(d_lst, ktl_lst, deg=2))
 x_fit = np.linspace(0, 20, 100)
 y_fit = p(x_fit)
 
 # Plotting
 plt.figure()
+plt.xlabel('d')
+plt.ylabel('ktl')
 plt.plot(d_lst, ktl_lst, linestyle='', marker='o', color='#277A4C')
 plt.plot(x_fit, y_fit, linestyle='--', color='#32A160')
 plt.show()

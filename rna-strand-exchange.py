@@ -18,7 +18,11 @@ def run_sim(timepoints, x0, CRN):
 def rna_se_biocrnpyler(ktl, offset, color):
     
     # Parameters (found in ctRSD_simulator_210.py)
-    params = {"ktx":0.013, "kdil":0.00075, "kcat":0.25/60} # kdil not from source, use what value? 
+    params = {"ktx":0.013, "kdil":0.00075, "kcat":0.25/60, 
+              ParameterKey(mechanism=None, part_id='rna_ugate', name='kdil'):0.000375,
+              ParameterKey(mechanism=None, part_id='rna_gate', name='kdil'):0.000375,
+              ParameterKey(mechanism=None, part_id='rna_input_gate', name='kdil'):0.000375
+              } # kdil not from source, value? 
     #should there be a different kdil for dsRNA
     
     krsd = 1e3/1e9
@@ -85,7 +89,7 @@ def rna_se_biocrnpyler(ktl, offset, color):
     plt.plot([1, 2e4], [offset, offset], color='k')
 
 #parameter list for function
-ktl_lst = [0.075, 0.05, 0.015, 0.0075, 0.0025, 0.001]
+ktl_lst = [0.025, 0.0125, 0.005, 0.0025, 0.001, 0.0005]
 color_lst = ['#123524', '#1D5638', '#277A4C', '#32A160', '#4DCB87', '#7FEFB2']
 offset_lst = np.arange(len(ktl_lst)) * 200
 

@@ -27,35 +27,35 @@ Reactions (11) = [
   found_key=(mech=None, partid=None, name=kdil).
   search_key=(mech=global_degredation_via_dilution, partid=protein_CFP_degtagged, name=kdil).
 
-4. rna[output_rna] --> 
- Kf=k_forward * rna_output_rna
-  k_forward=0.00075
-  found_key=(mech=None, partid=None, name=kdil).
-  search_key=(mech=rna_degredation, partid=rna_output_rna, name=kdil).
+4. rna[ugate] --> 
+ Kf=k_forward * rna_ugate
+  k_forward=0.000375
+  found_key=(mech=None, partid=rna_ugate, name=kdil).
+  search_key=(mech=rna_degredation, partid=rna_ugate, name=kdil).
 
-5. rna[gate] --> 
- Kf=k_forward * rna_gate
-  k_forward=0.00075
-  found_key=(mech=None, partid=None, name=kdil).
-  search_key=(mech=rna_degredation, partid=rna_gate, name=kdil).
-
-6. rna[input_gate] --> 
+5. rna[input_gate] --> 
  Kf=k_forward * rna_input_gate
-  k_forward=0.00075
-  found_key=(mech=None, partid=None, name=kdil).
+  k_forward=0.000375
+  found_key=(mech=None, partid=rna_input_gate, name=kdil).
   search_key=(mech=rna_degredation, partid=rna_input_gate, name=kdil).
 
-7. rna[input_rna] --> 
+6. rna[input_rna] --> 
  Kf=k_forward * rna_input_rna
   k_forward=0.00075
   found_key=(mech=None, partid=None, name=kdil).
   search_key=(mech=rna_degredation, partid=rna_input_rna, name=kdil).
 
-8. rna[ugate] --> 
- Kf=k_forward * rna_ugate
+7. rna[output_rna] --> 
+ Kf=k_forward * rna_output_rna
   k_forward=0.00075
   found_key=(mech=None, partid=None, name=kdil).
-  search_key=(mech=rna_degredation, partid=rna_ugate, name=kdil).
+  search_key=(mech=rna_degredation, partid=rna_output_rna, name=kdil).
+
+8. rna[gate] --> 
+ Kf=k_forward * rna_gate
+  k_forward=0.000375
+  found_key=(mech=None, partid=rna_gate, name=kdil).
+  search_key=(mech=rna_degredation, partid=rna_gate, name=kdil).
 
 9. rna[input_rna]+rna[gate] <--> rna[input_gate]+rna[output_rna]
  Kf=k_forward * rna_input_rna * rna_gate
@@ -65,6 +65,6 @@ Reactions (11) = [
 
 10. rna[input_gate] --> protein[CFP(degtagged)]+rna[input_gate]
  Kf=k_forward * rna_input_gate
-  k_forward=0.075
+  k_forward=0.0005
 
 ]
