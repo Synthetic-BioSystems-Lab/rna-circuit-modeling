@@ -63,7 +63,7 @@ def rna_se_biocrnpyler(ktl, offset, color):
     # File Creation and Simulation
     CRN = M.compile_crn()
     CRN.add_reactions([SD, Tl])
-    CRN.write_sbml_file(f'rna-strand-exchange.xml') #saving CRN as sbml
+    CRN.write_sbml_file(f'ctRSD.xml') #saving CRN as sbml
     
     with open('temp_CRN_EQNs.txt', 'w') as f:
         f.write(CRN.pretty_print(show_rates = True, show_keys = True))

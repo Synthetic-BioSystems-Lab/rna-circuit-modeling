@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version2/core" level="3" version="2">
+  <model id="biocrnpyler_122872" name="biocrnpyler_122872" substanceUnits="mole" timeUnits="second" volumeUnits="litre" areaUnits="square_metre" lengthUnits="metre" extentUnits="mole">
+    <listOfUnitDefinitions>
+      <unitDefinition id="square_metre">
+        <listOfUnits>
+          <unit kind="metre" exponent="2" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="default" name="default" spatialDimensions="3" size="1e-06" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="protein_CFP_degtagged" name="protein_CFP_degtagged" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="rna_input_gate_0" name="rna_input_gate_0" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="rna_input_gate_1" name="rna_input_gate_1" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="rna_output_rna" name="rna_output_rna" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="dna_ugate_0" name="dna_ugate_0" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="rna_ugate_0" name="rna_ugate_0" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="dna_ugate_1" name="dna_ugate_1" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="rna_ugate_1" name="rna_ugate_1" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="dna_input" name="dna_input" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="rna_input_rna" name="rna_input_rna" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="protein_ribozyme_0" name="protein_ribozyme_0" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="rna_gate_0" name="rna_gate_0" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="protein_ribozyme_1" name="protein_ribozyme_1" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="rna_gate_1" name="rna_gate_1" compartment="default" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="ktx__" value="0.013" constant="true"/>
+      <parameter id="kcat__" value="0.00416666666666667" constant="true"/>
+      <parameter id="kdil__" value="0.00075" constant="true"/>
+      <parameter id="kdil_rna_input_gate_1_" value="0.000375" constant="true"/>
+      <parameter id="kdil_rna_gate_0_" value="0.000375" constant="true"/>
+      <parameter id="kdil_rna_input_gate_0_" value="0.000375" constant="true"/>
+      <parameter id="kdil_rna_ugate_1_" value="0.000375" constant="true"/>
+      <parameter id="kdil_rna_gate_1_" value="0.000375" constant="true"/>
+      <parameter id="kdil_rna_ugate_0_" value="0.000375" constant="true"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="r0" name="r0" reversible="false">
+        <listOfReactants>
+          <speciesReference species="dna_ugate_0" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="dna_ugate_0" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_ugate_0" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> ktx__ </ci>
+              <ci> dna_ugate_0 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r1" name="r1" reversible="false">
+        <listOfReactants>
+          <speciesReference species="dna_ugate_1" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="dna_ugate_1" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_ugate_1" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> ktx__ </ci>
+              <ci> dna_ugate_1 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r2" name="r2" reversible="false">
+        <listOfReactants>
+          <speciesReference species="dna_input" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="dna_input" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_input_rna" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> ktx__ </ci>
+              <ci> dna_input </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r3" name="r3" reversible="false">
+        <listOfReactants>
+          <speciesReference species="protein_ribozyme_0" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_ugate_0" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="protein_ribozyme_0" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_gate_0" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kcat__ </ci>
+              <ci> protein_ribozyme_0 </ci>
+              <ci> rna_ugate_0 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r4" name="r4" reversible="false">
+        <listOfReactants>
+          <speciesReference species="protein_ribozyme_1" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_ugate_1" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="protein_ribozyme_1" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_gate_1" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kcat__ </ci>
+              <ci> protein_ribozyme_1 </ci>
+              <ci> rna_ugate_1 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r5" name="r5" reversible="false">
+        <listOfReactants>
+          <speciesReference species="protein_CFP_degtagged" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kdil__ </ci>
+              <ci> protein_CFP_degtagged </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r6" name="r6" reversible="false">
+        <listOfReactants>
+          <speciesReference species="rna_input_gate_1" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kdil_rna_input_gate_1_ </ci>
+              <ci> rna_input_gate_1 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r7" name="r7" reversible="false">
+        <listOfReactants>
+          <speciesReference species="rna_gate_0" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kdil_rna_gate_0_ </ci>
+              <ci> rna_gate_0 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r8" name="r8" reversible="false">
+        <listOfReactants>
+          <speciesReference species="rna_input_gate_0" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kdil_rna_input_gate_0_ </ci>
+              <ci> rna_input_gate_0 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r9" name="r9" reversible="false">
+        <listOfReactants>
+          <speciesReference species="rna_ugate_1" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kdil_rna_ugate_1_ </ci>
+              <ci> rna_ugate_1 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r10" name="r10" reversible="false">
+        <listOfReactants>
+          <speciesReference species="rna_gate_1" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kdil_rna_gate_1_ </ci>
+              <ci> rna_gate_1 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r11" name="r11" reversible="false">
+        <listOfReactants>
+          <speciesReference species="rna_output_rna" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kdil__ </ci>
+              <ci> rna_output_rna </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r12" name="r12" reversible="false">
+        <listOfReactants>
+          <speciesReference species="rna_ugate_0" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kdil_rna_ugate_0_ </ci>
+              <ci> rna_ugate_0 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r13" name="r13" reversible="false">
+        <listOfReactants>
+          <speciesReference species="rna_input_rna" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kdil__ </ci>
+              <ci> rna_input_rna </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r14" name="r14" reversible="false">
+        <listOfReactants>
+          <speciesReference species="rna_input_rna" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_gate_0" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="rna_input_gate_0" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_output_rna" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_forward </ci>
+              <ci> rna_input_rna </ci>
+              <ci> rna_gate_0 </ci>
+            </apply>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="k_forward" value="1e-06"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r14rev" name="r14rev" reversible="false">
+        <listOfReactants>
+          <speciesReference species="rna_input_gate_0" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_output_rna" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="rna_input_rna" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_gate_0" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_reverse </ci>
+              <ci> rna_input_gate_0 </ci>
+              <ci> rna_output_rna </ci>
+            </apply>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="k_reverse" value="2.7e-07"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r15" name="r15" reversible="false">
+        <listOfReactants>
+          <speciesReference species="rna_input_gate_0" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="protein_CFP_degtagged" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_input_gate_0" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_forward </ci>
+              <ci> rna_input_gate_0 </ci>
+            </apply>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="k_forward" value="0.025"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r16" name="r16" reversible="false">
+        <listOfReactants>
+          <speciesReference species="rna_input_rna" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_gate_1" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="rna_input_gate_1" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_output_rna" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_forward </ci>
+              <ci> rna_input_rna </ci>
+              <ci> rna_gate_1 </ci>
+            </apply>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="k_forward" value="1e-06"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r16rev" name="r16rev" reversible="false">
+        <listOfReactants>
+          <speciesReference species="rna_input_gate_1" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_output_rna" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="rna_input_rna" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_gate_1" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_reverse </ci>
+              <ci> rna_input_gate_1 </ci>
+              <ci> rna_output_rna </ci>
+            </apply>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="k_reverse" value="2.7e-07"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r17" name="r17" reversible="false">
+        <listOfReactants>
+          <speciesReference species="rna_input_gate_1" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="protein_CFP_degtagged" stoichiometry="1" constant="false"/>
+          <speciesReference species="rna_input_gate_1" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_forward </ci>
+              <ci> rna_input_gate_1 </ci>
+            </apply>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="k_forward" value="0.0125"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

@@ -1,0 +1,110 @@
+Species(N = 14) = {
+rna[ugate_1] (@ 0),  dna[ugate_1] (@ 0),  rna[ugate_0] (@ 0),  dna[ugate_0] (@ 0),  protein[ribozyme_1] (@ 0),  protein[ribozyme_0] (@ 0),  rna[output_rna] (@ 0),  rna[input_rna] (@ 0),  rna[input_gate_1] (@ 0),  rna[input_gate_0] (@ 0),  dna[input] (@ 0),  rna[gate_1] (@ 0),  rna[gate_0] (@ 0),  protein[CFP(degtagged)] (@ 0),  
+}
+
+Reactions (18) = [
+0. dna[ugate_0] --> dna[ugate_0]+rna[ugate_0]
+ Kf=k_forward * dna_ugate_0
+  k_forward=0.013
+  found_key=(mech=None, partid=None, name=ktx).
+  search_key=(mech=simple_transcription, partid=strong, name=ktx).
+
+1. dna[ugate_1] --> dna[ugate_1]+rna[ugate_1]
+ Kf=k_forward * dna_ugate_1
+  k_forward=0.013
+  found_key=(mech=None, partid=None, name=ktx).
+  search_key=(mech=simple_transcription, partid=strong, name=ktx).
+
+2. dna[input] --> dna[input]+rna[input_rna]
+ Kf=k_forward * dna_input
+  k_forward=0.013
+  found_key=(mech=None, partid=None, name=ktx).
+  search_key=(mech=simple_transcription, partid=strong, name=ktx).
+
+3. protein[ribozyme_0]+rna[ugate_0] --> protein[ribozyme_0]+rna[gate_0]
+ Kf=k_forward * protein_ribozyme_0 * rna_ugate_0
+  k_forward=0.004166666666666667
+  found_key=(mech=None, partid=None, name=kcat).
+  search_key=(mech=basic_catalysis, partid=ribozyme_0, name=kcat).
+
+4. protein[ribozyme_1]+rna[ugate_1] --> protein[ribozyme_1]+rna[gate_1]
+ Kf=k_forward * protein_ribozyme_1 * rna_ugate_1
+  k_forward=0.004166666666666667
+  found_key=(mech=None, partid=None, name=kcat).
+  search_key=(mech=basic_catalysis, partid=ribozyme_1, name=kcat).
+
+5. protein[CFP(degtagged)] --> 
+ Kf=k_forward * protein_CFP_degtagged
+  k_forward=0.00075
+  found_key=(mech=None, partid=None, name=kdil).
+  search_key=(mech=global_degredation_via_dilution, partid=protein_CFP_degtagged, name=kdil).
+
+6. rna[input_gate_1] --> 
+ Kf=k_forward * rna_input_gate_1
+  k_forward=0.000375
+  found_key=(mech=None, partid=rna_input_gate_1, name=kdil).
+  search_key=(mech=rna_degredation, partid=rna_input_gate_1, name=kdil).
+
+7. rna[gate_0] --> 
+ Kf=k_forward * rna_gate_0
+  k_forward=0.000375
+  found_key=(mech=None, partid=rna_gate_0, name=kdil).
+  search_key=(mech=rna_degredation, partid=rna_gate_0, name=kdil).
+
+8. rna[input_gate_0] --> 
+ Kf=k_forward * rna_input_gate_0
+  k_forward=0.000375
+  found_key=(mech=None, partid=rna_input_gate_0, name=kdil).
+  search_key=(mech=rna_degredation, partid=rna_input_gate_0, name=kdil).
+
+9. rna[ugate_1] --> 
+ Kf=k_forward * rna_ugate_1
+  k_forward=0.000375
+  found_key=(mech=None, partid=rna_ugate_1, name=kdil).
+  search_key=(mech=rna_degredation, partid=rna_ugate_1, name=kdil).
+
+10. rna[gate_1] --> 
+ Kf=k_forward * rna_gate_1
+  k_forward=0.000375
+  found_key=(mech=None, partid=rna_gate_1, name=kdil).
+  search_key=(mech=rna_degredation, partid=rna_gate_1, name=kdil).
+
+11. rna[output_rna] --> 
+ Kf=k_forward * rna_output_rna
+  k_forward=0.00075
+  found_key=(mech=None, partid=None, name=kdil).
+  search_key=(mech=rna_degredation, partid=rna_output_rna, name=kdil).
+
+12. rna[ugate_0] --> 
+ Kf=k_forward * rna_ugate_0
+  k_forward=0.000375
+  found_key=(mech=None, partid=rna_ugate_0, name=kdil).
+  search_key=(mech=rna_degredation, partid=rna_ugate_0, name=kdil).
+
+13. rna[input_rna] --> 
+ Kf=k_forward * rna_input_rna
+  k_forward=0.00075
+  found_key=(mech=None, partid=None, name=kdil).
+  search_key=(mech=rna_degredation, partid=rna_input_rna, name=kdil).
+
+14. rna[input_rna]+rna[gate_0] <--> rna[input_gate_0]+rna[output_rna]
+ Kf=k_forward * rna_input_rna * rna_gate_0
+ Kr=k_reverse * rna_input_gate_0 * rna_output_rna
+  k_forward=1e-06
+  k_reverse=2.7e-07
+
+15. rna[input_gate_0] --> protein[CFP(degtagged)]+rna[input_gate_0]
+ Kf=k_forward * rna_input_gate_0
+  k_forward=0.025
+
+16. rna[input_rna]+rna[gate_1] <--> rna[input_gate_1]+rna[output_rna]
+ Kf=k_forward * rna_input_rna * rna_gate_1
+ Kr=k_reverse * rna_input_gate_1 * rna_output_rna
+  k_forward=1e-06
+  k_reverse=2.7e-07
+
+17. rna[input_gate_1] --> protein[CFP(degtagged)]+rna[input_gate_1]
+ Kf=k_forward * rna_input_gate_1
+  k_forward=0.0125
+
+]

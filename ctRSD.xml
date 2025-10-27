@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version2/core" level="3" version="2">
-  <model id="biocrnpyler_234469" name="biocrnpyler_234469" substanceUnits="mole" timeUnits="second" volumeUnits="litre" areaUnits="square_metre" lengthUnits="metre" extentUnits="mole">
+  <model id="biocrnpyler_497874" name="biocrnpyler_497874" substanceUnits="mole" timeUnits="second" volumeUnits="litre" areaUnits="square_metre" lengthUnits="metre" extentUnits="mole">
     <listOfUnitDefinitions>
       <unitDefinition id="square_metre">
         <listOfUnits>
@@ -32,9 +32,6 @@
     </listOfParameters>
     <listOfReactions>
       <reaction id="r0" name="r0" reversible="false">
-        <annotation>
-          <PropensityType> k=ktx__ type=massaction</PropensityType>
-        </annotation>
         <listOfReactants>
           <speciesReference species="dna_ugate" stoichiometry="1" constant="false"/>
         </listOfReactants>
@@ -53,9 +50,6 @@
         </kineticLaw>
       </reaction>
       <reaction id="r1" name="r1" reversible="false">
-        <annotation>
-          <PropensityType> k=ktx__ type=massaction</PropensityType>
-        </annotation>
         <listOfReactants>
           <speciesReference species="dna_input" stoichiometry="1" constant="false"/>
         </listOfReactants>
@@ -74,9 +68,6 @@
         </kineticLaw>
       </reaction>
       <reaction id="r2" name="r2" reversible="false">
-        <annotation>
-          <PropensityType> k=kcat__ type=massaction</PropensityType>
-        </annotation>
         <listOfReactants>
           <speciesReference species="protein_ribozyme" stoichiometry="1" constant="false"/>
           <speciesReference species="rna_ugate" stoichiometry="1" constant="false"/>
@@ -97,9 +88,6 @@
         </kineticLaw>
       </reaction>
       <reaction id="r3" name="r3" reversible="false">
-        <annotation>
-          <PropensityType> k=kdil__ type=massaction</PropensityType>
-        </annotation>
         <listOfReactants>
           <speciesReference species="protein_CFP_degtagged" stoichiometry="1" constant="false"/>
         </listOfReactants>
@@ -114,9 +102,6 @@
         </kineticLaw>
       </reaction>
       <reaction id="r4" name="r4" reversible="false">
-        <annotation>
-          <PropensityType> k=kdil_rna_input_gate_ type=massaction</PropensityType>
-        </annotation>
         <listOfReactants>
           <speciesReference species="rna_input_gate" stoichiometry="1" constant="false"/>
         </listOfReactants>
@@ -131,9 +116,6 @@
         </kineticLaw>
       </reaction>
       <reaction id="r5" name="r5" reversible="false">
-        <annotation>
-          <PropensityType> k=kdil__ type=massaction</PropensityType>
-        </annotation>
         <listOfReactants>
           <speciesReference species="rna_output_rna" stoichiometry="1" constant="false"/>
         </listOfReactants>
@@ -148,9 +130,6 @@
         </kineticLaw>
       </reaction>
       <reaction id="r6" name="r6" reversible="false">
-        <annotation>
-          <PropensityType> k=kdil__ type=massaction</PropensityType>
-        </annotation>
         <listOfReactants>
           <speciesReference species="rna_input_rna" stoichiometry="1" constant="false"/>
         </listOfReactants>
@@ -165,9 +144,6 @@
         </kineticLaw>
       </reaction>
       <reaction id="r7" name="r7" reversible="false">
-        <annotation>
-          <PropensityType> k=kdil_rna_gate_ type=massaction</PropensityType>
-        </annotation>
         <listOfReactants>
           <speciesReference species="rna_gate" stoichiometry="1" constant="false"/>
         </listOfReactants>
@@ -182,9 +158,6 @@
         </kineticLaw>
       </reaction>
       <reaction id="r8" name="r8" reversible="false">
-        <annotation>
-          <PropensityType> k=kdil_rna_ugate_ type=massaction</PropensityType>
-        </annotation>
         <listOfReactants>
           <speciesReference species="rna_ugate" stoichiometry="1" constant="false"/>
         </listOfReactants>
@@ -199,9 +172,6 @@
         </kineticLaw>
       </reaction>
       <reaction id="r9" name="r9" reversible="false">
-        <annotation>
-          <PropensityType> k=k_forward type=massaction</PropensityType>
-        </annotation>
         <listOfReactants>
           <speciesReference species="rna_input_rna" stoichiometry="1" constant="false"/>
           <speciesReference species="rna_gate" stoichiometry="1" constant="false"/>
@@ -225,9 +195,6 @@
         </kineticLaw>
       </reaction>
       <reaction id="r9rev" name="r9rev" reversible="false">
-        <annotation>
-          <PropensityType> k=k_reverse type=massaction</PropensityType>
-        </annotation>
         <listOfReactants>
           <speciesReference species="rna_input_gate" stoichiometry="1" constant="false"/>
           <speciesReference species="rna_output_rna" stoichiometry="1" constant="false"/>
@@ -251,9 +218,6 @@
         </kineticLaw>
       </reaction>
       <reaction id="r10" name="r10" reversible="false">
-        <annotation>
-          <PropensityType> k=k_forward type=massaction</PropensityType>
-        </annotation>
         <listOfReactants>
           <speciesReference species="rna_input_gate" stoichiometry="1" constant="false"/>
         </listOfReactants>
